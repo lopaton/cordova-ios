@@ -197,6 +197,7 @@ static const NSUInteger FILE_BUFFER_SIZE = 1024 * 1024 * 4; // 4 MiB
 
     if ([url.path hasPrefix:@"/_app_file_"]) {
         NSString *path = [url.path stringByReplacingOccurrencesOfString:@"/_app_file_" withString:@""];
+        resDir = [NSURL fileURLWithPath:@"file://"];  // hotfix by Tomas Janoska @lopaton
         filePath = [resDir URLByAppendingPathComponent:path];
     } else {
         if ([url.path isEqualToString:@""] || [url.pathExtension isEqualToString:@""]) {
